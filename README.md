@@ -5,47 +5,49 @@ _Framework ini dibuat untuk seru-seruan (have fun) dan biar bikin web jadi lebih
 
 ## 🚀 Cara Pakai (Quick Start)
 
-Kamu bisa pilih cara yang paling enak buat mulai bikin (masak) web:
+Pilih satu cara saja. Code block di bawah ini sudah **siap copy**, nggak perlu ribet hapus komentar.
 
 ### 1. Langsung Gas (Tanpa Install)
 
-Kalau malas install-install, pastikan komputer kamu sudah ada Node.js, lalu langsung aja pakai `npx`:
+Buat project baru (ganti `warung-ku` dengan nama projectmu):
 
 ```bash
-# Bikin project baru (buka cabang)
 npx lumpiajs buka-cabang warung-ku
-# PS: Kalau bingung istilahnya, bisa pakai command biasa:
-# npx lumpiajs create-project warung-ku
-
-# Terus masuk folder & langsung goreng (compile)
-cd warung-ku
-npx lumpiajs goreng
 ```
 
-### 2. Install Global (Biar Bisa Dipakai Terus)
+_(Kalau mau pakai istilah biasa, bisa ganti `buka-cabang` dengan `create-project`)_
 
-Kalau kamu pengen perintah `lumpia` bisa dipanggil dari mana saja di terminal:
+Lalu masuk ke folder & jalankan (goreng):
 
 ```bash
-# 1. Install dulu secara global
+cd warung-ku && npx lumpiajs goreng
+```
+
+---
+
+### 2. Install Global (Biar Lebih Enak)
+
+Install LumpiaJS ke komputermu:
+
+```bash
 npm install -g lumpiajs
-
-# 2. Bikin project baru
-lumpia buka-cabang toko-lumpia
-# Atau: lumpia create-project toko-lumpia
-
-# 3. Masuk folder & masak kodingan (compile)
-cd toko-lumpia
-lumpia goreng
 ```
 
-#### 🔄 Cara Update (Kalau Ada Versi Baru)
-
-Kalau LumpiaJS merilis resep baru (update), cara update-nya gampang:
+Buat project baru:
 
 ```bash
-npm update -g lumpiajs
-# Atau reinstall versi paling anyar:
+lumpia buka-cabang toko-lumpia
+```
+
+Masak (Compile) project-nya:
+
+```bash
+cd toko-lumpia && lumpia goreng
+```
+
+**Cara Update ke Versi Terbaru:**
+
+```bash
 npm install -g lumpiajs@latest
 ```
 
