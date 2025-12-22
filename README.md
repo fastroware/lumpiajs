@@ -1,114 +1,118 @@
 # 🥟 LumpiaJS
 
-**Bahasa Pemrograman Web dengan Kearifan Lokal Semarangan.**  
-_Framework ini dibuat untuk seru-seruan (have fun) dan biar bikin web jadi lebih cepat dan menyenangkan!_ (Rencananya sih gitu... wkwkwk)
+**Framework Web MVC dengan Kearifan Lokal Semarangan.**  
+_Framework ini dibuat untuk seru-seruan (have fun), tapi diam-diam powerful seperti PHP Framework modern!_
 
-## 🚀 Cara Pakai (Quick Start)
+## 🚀 Cara Mulai (Quick Start)
 
-Pilih satu cara saja. Code block di bawah ini sudah **siap copy**, nggak perlu ribet hapus komentar.
+### 1. Buat Project Baru
 
-### 1. Langsung Gas (Tanpa Install)
-
-Buat project baru (ganti `warung-ku` dengan nama projectmu):
+Langsung gas pakai perintah ini:
 
 ```bash
-npx lumpiajs buka-cabang warung-ku
+npx lumpiajs create-project warung-ku
 ```
 
-Atau pakai istilah biasa (create-project):
+_(Atau pakai istilah lokal: `npx lumpiajs buka-cabang warung-ku`)_
+
+### 2. Masuk & Install Bumbu
+
+Masuk ke foldernya dan install dependencies (wajib, biar kodingannya gurih):
 
 ```bash
-npx lumpiajs create-project myproject
+cd warung-ku
+npm install
 ```
 
-Lalu masuk ke folder & jalankan (goreng):
+### 3. Dodolan (Jalankan Server)
+
+Nyalakan server development:
 
 ```bash
-cd warung-ku && npx lumpiajs goreng
+npm start
+```
+
+Atau pakai perintah manual: `npx lumpia dodolan`.  
+Websitemu bakal jalan di `http://localhost:3000`.
+
+---
+
+## 🏗️ Struktur Project (MVC)
+
+LumpiaJS sekarang menggunakan arsitektur MVC yang rapi, mirip framework sebelah (uhuk, Laravel).
+
+```
+warung-ku/
+├── app/
+│   ├── kontroler/   # Otak logika (Controller)
+│   └── model/       # Pengolah Data (Model)
+├── jalur/
+│   └── web.js       # Rute URL (Routes)
+├── wajah/           # Tampilan (View .lmp)
+├── package.json
+└── ...
+```
+
+### 1. Jalur (Routes)
+
+Atur URL di `jalur/web.js`:
+
+```javascript
+import { Jalan } from "lumpiajs";
+
+Jalan.gawe("/", "BerandaKontroler@index");
+Jalan.gawe("/api/produk", "ProdukKontroler@index");
+```
+
+### 2. Kontroler (Controller)
+
+Bikin logika di `app/kontroler/BerandaKontroler.js`:
+
+```javascript
+import { Kontroler } from "lumpiajs";
+
+export default class BerandaKontroler extends Kontroler {
+  index() {
+    // Render file wajah/beranda.lmp dengan data
+    return this.tampil("beranda", {
+      pesan: "Sugeng Rawuh, Lur!",
+      tanggal: new Date().toLocaleDateString(),
+    });
+  }
+}
+```
+
+### 3. Wajah (View)
+
+Bikin tampilan di `wajah/beranda.lmp`.  
+Gunakan `{{ variabel }}` buat nampilin data.
+
+```html
+<lump>
+  <klambi> h1 { color: red; } </klambi>
+
+  <kulit>
+    <h1>{{ pesan }}</h1>
+    <p>Saiki tanggal: {{ tanggal }}</p>
+  </kulit>
+</lump>
 ```
 
 ---
 
-### 2. Install Global (Biar Lebih Enak)
+## 🤝 Cara Lapor Masalah
 
-Install LumpiaJS ke komputermu:
-
-```bash
-npm install -g lumpiajs
-```
-
-Buat project baru:
-
-```bash
-lumpia buka-cabang toko-lumpia
-```
-
-Masak (Compile) project-nya:
-
-```bash
-cd toko-lumpia && lumpia goreng
-```
-
-**Cara Update ke Versi Terbaru:**
-
-```bash
-npm install -g lumpiajs@latest
-```
-
----
-
-## 🧐 Apa Ini?
-
-LumpiaJS adalah framework eksperimental yang memungkinkan kamu menulis kode web (HTML, CSS, JS) dalam satu file `.lmp` dengan istilah-istilah khas Semarangan.
-
-### Struktur File `.lmp`
-
-- **`<klambi>`**: Untuk mengatur gaya (CSS / Baju).
-- **`<kulit>`**: Untuk kerangka tampilan (HTML / Kulit Lumpia).
-- **`<isi>`**: Untuk logika program (JavaScript / Isian Lumpia).
-
-### Kamus Bahasa (Transpiler)
-
-- `ono` ➔ `let`
-- `paten` ➔ `const`
-- `gawe` ➔ `function`
-- `yen` ➔ `if`
-- `liyane` ➔ `else`
-- `mandek` ➔ `return`
-- `ora` ➔ `!`
-- `panjang()` ➔ `.length`
-
----
-
-## 🤝 Cara Lapor Masalah atau Kasih Saran
-
-Baru nemu bug? Atau punya ide jenius biar LumpiaJS makin jos? Sampaikan saja!
-
-Caranya gampang:
+Nembe nemu bug? Atau punya ide jenius?
 
 1. Buka link ini: [https://github.com/fastroware/lumpiajs/issues](https://github.com/fastroware/lumpiajs/issues)
-2. Klik tombol warna hijau bertuliskan **"New Issue"**.
-3. Isi Judul dengan jelas (misal: _"Mas, perintah 'goreng' kok malah gosong?"_).
-4. Jelaskan masalah atau saranmu di kolom deskripsi.
-5. Klik **"Submit new issue"**.
-
-Selesai! Masukanmu akan saya baca pas lagi senggang.
+2. Klik **"New Issue"**.
+3. Ceritakan keluh kesahmu.
 
 ---
 
-## ⚠️ DISCLAIMER (PENTING BANGET, WAJIB DIBACA!) ⚠️
+## ⚠️ DISCLAIMER
 
-**LumpiaJS ini 100% project _Have Fun_ & Eksperimen.**
-
-Kami **TIDAK BERTANGGUNG JAWAB** atas segala bentuk kerugian yang mungkin terjadi akibat penggunaan software ini, termasuk tapi tidak terbatas pada:
-
-- Kebocoran data.
-- Hilangnya file penting.
-- Komputer meledak (lebay, tapi tetap saja hati-hati).
-- Kerugian materiil maupun immateriil lainnya.
-
-Gunakan framework ini dengan resiko ditanggung sendiri (_Use at your own risk_). Kalau ada error di production karena nekat pakai ini, jangan nyalahin kami ya! 🙏
-
----
+**LumpiaJS ini 100% project _Have Fun_.**
+Gunakan dengan bijak. Kalau ada error di production, jangan nyalahin kami ya! 🙏
 
 _Dibuat dengan ❤️ dan 🥟 dari Semarang._
