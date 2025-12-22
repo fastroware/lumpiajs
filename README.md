@@ -39,6 +39,16 @@ cd toko-lumpia
 lumpia goreng
 ```
 
+#### 🔄 Cara Update (Kalau Ada Versi Baru)
+
+Kalau LumpiaJS merilis resep baru (update), cara update-nya gampang:
+
+```bash
+npm update -g lumpiajs
+# Atau reinstall versi paling anyar:
+npm install -g lumpiajs@latest
+```
+
 ---
 
 ## 🧐 Apa Ini?
