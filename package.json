@@ -1,0 +1,12 @@
+{
+  "name": "lumpiajs",
+  "version": "1.0.2",
+  "description": "Bahasa Pemrograman Semarangan",
+  "type": "module",
+  "bin": {
+    "lumpia": "./index.js"
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.1"
+  }
+}
