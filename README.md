@@ -15,7 +15,11 @@ Buat project baru (ganti `warung-ku` dengan nama projectmu):
 npx lumpiajs buka-cabang warung-ku
 ```
 
-_(Kalau mau pakai istilah biasa, bisa ganti `buka-cabang` dengan `create-project`)_
+Atau pakai istilah biasa (create-project):
+
+```bash
+npx lumpiajs create-project myproject
+```
 
 Lalu masuk ke folder & jalankan (goreng):
 
