@@ -14,6 +14,8 @@ Kalau malas install-install, pastikan komputer kamu sudah ada Node.js, lalu lang
 ```bash
 # Bikin project baru (buka cabang)
 npx lumpiajs buka-cabang warung-ku
+# PS: Kalau bingung istilahnya, bisa pakai command biasa:
+# npx lumpiajs create-project warung-ku
 
 # Terus masuk folder & langsung goreng (compile)
 cd warung-ku
@@ -30,6 +32,7 @@ npm install -g lumpiajs
 
 # 2. Bikin project baru
 lumpia buka-cabang toko-lumpia
+# Atau: lumpia create-project toko-lumpia
 
 # 3. Masuk folder & masak kodingan (compile)
 cd toko-lumpia
