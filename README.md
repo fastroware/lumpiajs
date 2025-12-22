@@ -3,7 +3,42 @@
 **Bahasa Pemrograman Web dengan Kearifan Lokal Semarangan.**  
 _Framework ini digawe kanggo seneng-seneng (have fun) lan ben nggawe web dadi luwih cepet lan nyenengke!_ (Rencanane ngono... wkwkwk)
 
-## Apa Iki?
+## 🚀 Cara Nganggo (Quick Start)
+
+Sampeyan iso milih cara sing paling kepenak kanggo miwiti masak web:
+
+### 1. Langsung Gas (Tanpa Install)
+
+Nek wegah ribet install-install, langsung wae nggo `npx`. Pastikan nek komputer sampeyan wis ono Node.js.
+
+```bash
+# Gawe project anyar (buka cabang)
+npx lumpiajs buka-cabang warung-ku
+
+# Terus masuk folder & langsung goreng
+cd warung-ku
+npx lumpiajs goreng
+```
+
+### 2. Install Global (Ben Iso Dienggo Terus)
+
+Nek sampeyan pengen printah `lumpia` iso dipanggil seko endi wae ning terminal:
+
+```bash
+# 1. Install dhisik secara global
+npm install -g lumpiajs
+
+# 2. Gawe project anyar
+lumpia buka-cabang toko-lumpia
+
+# 3. Masuk folder & masak kodingan (compile)
+cd toko-lumpia
+lumpia goreng
+```
+
+---
+
+## 🧐 Apa Iki?
 
 LumpiaJS adalah framework eksperimental yang memungkinkan kamu menulis kode web (HTML, CSS, JS) dalam satu file `.lmp` dengan istilah-istilah Semarangan.
 
@@ -23,29 +58,6 @@ LumpiaJS adalah framework eksperimental yang memungkinkan kamu menulis kode web 
 - `mandek` ➔ `return`
 - `ora` ➔ `!`
 - `panjang()` ➔ `.length`
-
-## Cara Masak (Penggunaan)
-
-1. **Install dhisik** (Pastikan wis ono Node.js):
-
-   ```bash
-   npm install -g lumpiajs
-   ```
-
-2. **Gawe Project Anyar (Buka Cabang)**:
-
-   ```bash
-   lumpia buka-cabang warung-ku
-   ```
-
-   _Perintah iki bakal nggawe folder `warung-ku` sing isine struktur project siap masak._
-
-3. **Masuk Folder & Goreng Kodingan**:
-   ```bash
-   cd warung-ku
-   lumpia goreng
-   ```
-   _File `.lmp` ning folder `src` bakal digoreng dadi file `.html` ning folder `dist`. Mateng!_
 
 ---
 
