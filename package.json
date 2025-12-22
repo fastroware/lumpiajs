@@ -1,6 +1,6 @@
 {
   "name": "lumpiajs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Bahasa Pemrograman Semarangan",
   "type": "module",
   "main": "index.js",
