@@ -37,18 +37,18 @@ Websitemu bakal jalan di `http://localhost:3000`.
 
 ---
 
-## 🏗️ Struktur Project (MVC)
+## 🏗️ Struktur Project (MVL - Model View Logika)
 
-LumpiaJS sekarang menggunakan arsitektur MVC yang rapi, mirip framework sebelah (uhuk, Laravel).
+LumpiaJS nggunake istilah sing luwih "Njawani" tapi tetep MVC:
 
 ```
 warung-ku/
 ├── app/
-│   ├── kontroler/   # Otak logika (Controller)
-│   └── model/       # Pengolah Data (Model)
+│   ├── logika/      # Logika Program (Controller)
+│   └── belakang/    # Data & Dapur (Model)
 ├── jalur/
 │   └── web.js       # Rute URL (Routes)
-├── wajah/           # Tampilan (View .lmp)
+├── depan/           # Tampilan (View)
 ├── package.json
 └── ...
 ```
@@ -60,20 +60,22 @@ Atur URL di `jalur/web.js`:
 ```javascript
 import { Jalan } from "lumpiajs";
 
-Jalan.gawe("/", "BerandaKontroler@index");
-Jalan.gawe("/api/produk", "ProdukKontroler@index");
+// Nulis rute: Jalan.gawe(url, 'NamaLogika@method')
+Jalan.gawe("/", "BerandaLogika@index");
+Jalan.gawe("/api/produk", "ProdukLogika@index");
 ```
 
-### 2. Kontroler (Controller)
+### 2. Logika (Controller)
 
-Bikin logika di `app/kontroler/BerandaKontroler.js`:
+Bikin logika di `app/logika/BerandaLogika.js`.
+Class harus extend `Logika`.
 
 ```javascript
-import { Kontroler } from "lumpiajs";
+import { Logika } from "lumpiajs";
 
-export default class BerandaKontroler extends Kontroler {
+export default class BerandaLogika extends Logika {
   index() {
-    // Render file wajah/beranda.lmp dengan data
+    // Tampilke file ning folder 'depan/beranda.lmp'
     return this.tampil("beranda", {
       pesan: "Sugeng Rawuh, Lur!",
       tanggal: new Date().toLocaleDateString(),
@@ -82,9 +84,9 @@ export default class BerandaKontroler extends Kontroler {
 }
 ```
 
-### 3. Wajah (View)
+### 3. Depan (View)
 
-Bikin tampilan di `wajah/beranda.lmp`.  
+Bikin tampilan di `depan/beranda.lmp`.  
 Gunakan `{{ variabel }}` buat nampilin data.
 
 ```html
@@ -96,6 +98,16 @@ Gunakan `{{ variabel }}` buat nampilin data.
     <p>Saiki tanggal: {{ tanggal }}</p>
   </kulit>
 </lump>
+```
+
+### 4. Belakang (Model)
+
+Simpen data utawa logika database ning `app/belakang/Produk.js`.
+Bisa nggunake `Model` ala Eloquent.
+
+```javascript
+import { Model } from "lumpiajs";
+// ... logika model ...
 ```
 
 ---
