@@ -3,71 +3,69 @@
 **Bahasa Pemrograman Web dengan Kearifan Lokal Semarangan.**  
 _Framework ini dibuat untuk seru-seruan (have fun) dan biar bikin web jadi lebih cepat dan menyenangkan!_ (Rencananya sih gitu... wkwkwk)
 
-## 🚀 Cara Pakai (Quick Start)
+## 🚀 Cara Pakai (Wajib Baca!)
 
-Kamu bisa pilih cara yang paling enak buat mulai bikin (masak) web:
+Agar tidak bingung dan selalu mendapatkan resep terbaru, ikuti langkah-langkah ini dengan teliti ya, Juragan!
 
-### 1. Langsung Gas (Tanpa Install)
+### 1. Buat Project Baru
 
-Kalau malas install-install, pastikan komputer kamu sudah ada Node.js, lalu langsung aja pakai `npx`:
-
-**Langkah 1: Buat Project**
+Gunakan perintah `npx` dengan tambahan `@latest` agar kamu selalu menggunakan versi LumpiaJS paling baru (fresh from the oven).
 
 ```bash
-npx lumpiajs create-project warung-ku
+npx lumpiajs@latest create-project warung-ku
 ```
 
-_(Atau pakai istilah lokal: `npx lumpiajs buka-cabang warung-ku`)_
-
-**Langkah 2: Masuk & Install Bumbu (Dependencies)**
-Penting! Kamu harus install dependencies biar `import` framework-nya jalan.
+### 2. Masuk Folder Project
 
 ```bash
 cd warung-ku
+```
+
+### 3. Install Bumbu-Bumbunya (Wajib!)
+
+Langkah ini sering dilupakan. Kamu **harus** menginstall dependencies agar project bisa jalan. **LumpiaJS tidak akan jalan kalau ini dilewatkan.**
+
+```bash
 npm install
 ```
 
-**Langkah 3: Nyalakan Kompor (Server)**
+### 4. Nyalakan Kompor (Jalankan Server)
+
+Untuk menjalankan project, gunakan perintah npm yang sudah disediakan.
 
 ```bash
 npm start
 ```
 
-_(Atau manual: `npx lumpia dodolan`)_
+_Atau bisa juga pakai:_
+
+```bash
+npm run serve
+```
+
+_(Jangan pakai `npm serve` saja ya, nanti error "Unknown command". Pakai `run` atau `start`!)_
+
 Websitemu bakal jalan di `http://localhost:3000`.
 
 ---
 
-### 2. Install Global (Biar Bisa Dipakai Terus)
+## ❓ Masalah yang Sering Muncul (FAQ)
 
-Kalau kamu pengen perintah `lumpia` bisa dipanggil dari mana saja di terminal:
+**Q: Saya ketik `lumpia serve` kok error "command not recognized"?**  
+A: Itu karena kamu belum menginstall LumpiaJS secara global. Gunakan `npm start` saja, itu sudah otomatis memanggil perintah lumpia dari dalam projectmu.  
+Kalau kamu ngotot pengen pakai perintah `lumpia` langsung di terminal, kamu harus install global dulu: `npm install -g lumpiajs`. Tapi kami sarankan pakai `npm start` saja biar lebih aman dan rapi.
 
-```bash
-# 1. Install dulu secara global
-npm install -g lumpiajs
+**Q: Saya ketik `npm serve` kok error?**  
+A: Kurang `run`, Boss! Harusnya `npm run serve`.
 
-# 2. Bikin project baru
-lumpia create-project toko-lumpia
-
-# 3. Masuk folder & install npm
-cd toko-lumpia
-npm install
-
-# 4. Jalanin server
-lumpia dodolan
-```
-
-**Cara Update ke Versi Terbaru:**
-
-```bash
-npm install -g lumpiajs@latest
-```
+**Q: Kenapa harus pakai `@latest` pas create-project?**  
+A: Biar kamu nggak dapet versi basi (cache lama) yang mungkin masih error.
 
 ---
 
 ## 🏗️ Struktur Project (Standar MVC)
 
-LumpiaJS sekarang menggunakan arsitektur **MVC (Model-View-Controller)** yang mengikuti standar internasional, jadi developer Laravel atau Express pasti langsung paham.
+LumpiaJS sekarang menggunakan arsitektur **MVC (Model-View-Controller)** yang mengikuti standar internasional.
 
 ```
 warung-ku/
@@ -103,10 +101,9 @@ import { Controller } from "lumpiajs";
 export default class HomeController extends Controller {
   index() {
     // Tampilkan file di folder views/home.lmp
-    // Kirim data 'pesan' ke view
     return this.tampil("home", {
-      pesan: "Halo Dunia!",
-      tanggal: new Date().toLocaleDateString(),
+      message: "Halo Dunia!",
+      date: new Date().toLocaleDateString(),
     });
   }
 }
@@ -122,9 +119,8 @@ Gunakan `{{ nama_variabel }}` untuk menampilkan data dari Controller.
   <klambi> /* CSS di sini */ h1 { color: #d35400; } </klambi>
 
   <kulit>
-    <!-- HTML di sini -->
-    <h1>{{ pesan }}</h1>
-    <p>Tanggal server: {{ tanggal }}</p>
+    <h1>{{ message }}</h1>
+    <p>Tanggal: {{ date }}</p>
   </kulit>
 
   <isi>
@@ -147,50 +143,18 @@ import { Model } from "lumpiajs";
 
 ---
 
-## 🧐 Kamus Bahasa (Transpiler)
+## 🤝 Cara Lapor Masalah
 
-Khusus di dalam tag **`<isi>`** (pada file `.lmp`), kamu bisa menggunakan sintaks unik ini:
-
-- `ono` ➔ `let`
-- `paten` ➔ `const`
-- `gawe` ➔ `function`
-- `yen` ➔ `if`
-- `liyane` ➔ `else`
-- `mandek` ➔ `return`
-- `ora` ➔ `!`
-- `panjang()` ➔ `.length`
-
----
-
-## 🤝 Cara Lapor Masalah atau Kasih Saran
-
-Baru nemu bug? Atau punya ide jenius biar LumpiaJS makin jos? Sampaikan saja!
-
-Caranya gampang:
+Nembe nemu bug?
 
 1. Buka link ini: [https://github.com/fastroware/lumpiajs/issues](https://github.com/fastroware/lumpiajs/issues)
 2. Klik tombol warna hijau bertuliskan **"New Issue"**.
-3. Isi Judul dengan jelas.
-4. Jelaskan masalah atau saranmu di kolom deskripsi.
-5. Klik **"Submit new issue"**.
-
-Selesai! Masukanmu akan saya baca pas lagi senggang.
 
 ---
 
-## ⚠️ DISCLAIMER (PENTING BANGET, WAJIB DIBACA!) ⚠️
+## ⚠️ DISCLAIMER
 
 **LumpiaJS ini 100% project _Have Fun_ & Eksperimen.**
-
-Kami **TIDAK BERTANGGUNG JAWAB** atas segala bentuk kerugian yang mungkin terjadi akibat penggunaan software ini, termasuk tapi tidak terbatas pada:
-
-- Kebocoran data.
-- Hilangnya file penting.
-- Komputer meledak (lebay, tapi tetap saja hati-hati).
-- Kerugian materiil maupun immateriil lainnya.
-
-Gunakan framework ini dengan resiko ditanggung sendiri (_Use at your own risk_). Kalau ada error di production karena nekat pakai ini, jangan nyalahin kami ya! 🙏
-
----
+Gunakan dengan resiko ditanggung sendiri (_Use at your own risk_).
 
 _Dibuat dengan ❤️ dan 🥟 dari Semarang._
