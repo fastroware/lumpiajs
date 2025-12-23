@@ -4,65 +4,69 @@
 
 ---
 
-## 🦄 Fitur Unik: Laravel Syntax di JavaScript!
-
-Ini gila sih. Kamu bisa pakai sintaks panah `->` ala PHP/Laravel di dalam file JavaScript (`.lmp`).
-
-**Contoh Query Database:**
+## 🦄 Fitur Unik: Laravel Syntax di JavaScript! (`->`)
 
 ```javascript
-// Gak perlu pakai titik (.) lagi, pakai panah (->) biar feel-nya dapet!
-const users = await DB.table('users')
-                      ->where('active', 1)
-                      ->limit(10)
-                      ->get();
-```
-
-**Contoh Routing:**
-
-```javascript
+// Valid di LumpiaJS (.lmp)
+const users = await DB.table('users')->where('active', 1)->get();
 Jalan->get('/', 'HomeController@index');
-Jalan->post('/simpan', 'HomeController@store');
-```
-
-**Kenapa bisa gitu?**  
-Karena LumpiaJS punya _Transpiler_ canggih yang merubah `->` menjadi `.` secara otomatis sebelum dijalankan. Jadi coding JS rasanya kayak coding PHP Modern. Uhuk!
-
----
-
-## 🗄️ Database (MySQL)
-
-**Setting `.env`:**
-
-```env
-DB_HOST="localhost"
-DB_USER="root"
-DB_NAME="lumpia_db"
-```
-
-**Cara Pakai:**
-
-```javascript
-import { Controller, DB } from 'lumpiajs';
-
-export default class UserController extends Controller {
-    async index() {
-        return this->json({
-            message: 'Halo User',
-            data: await DB.table('users')->get()
-        });
-    }
-}
 ```
 
 ---
 
-## 🚀 Deployment (Cara Upload)
+## 🏗️ Cara Deploy ke Production (Server Asli)
 
-**Syarat:** Node.js Server.
-**Upload:** Semua folder KECUALI `node_modules`.
-**Install:** `npm install --production`
-**Run:** `npm start`
+Ini yang sering ditanyain: **"Mas, file mana yang harus saya upload ke hosting?"**
+
+Tenang, LumpiaJS punya fitur **Goreng** (Build) biar kamu nggak bingung.
+
+### 1. Goreng Project (Build)
+
+Jalankan perintah ini di komputermu:
+
+```bash
+lumpia goreng
+```
+
+_(Atau: `lumpia build`)_
+
+Sistem akan memasak projectmu:
+
+- Mentranspile sintaks `->` menjadi JS standard.
+- Mengkompilasi CSS (minify Tailwind/Bootstrap).
+- Menyiapkan folder `dist` yang siap saji.
+
+### 2. Upload ke Server
+
+Setelah digoreng, akan muncul folder **`dist`**.
+
+👉 **HANYA ISI FOLDER `dist`** inilah yang perlu kamu upload ke server.
+(Isinya: `server.js`, `package.json`, `.env`, folder `app`, `routes`, `views`, `public`)
+
+### 3. Install & Start di Server
+
+Di panel hosting (Terminal/SSH) atau VPS:
+
+```bash
+# Masuk ke folder yang barusan diupload
+cd /path/to/your/app
+
+# Install dependencies (LumpiaJS core, mysql driver, dll)
+npm install --production
+
+# Jalankan Aplikasi
+npm start
+```
+
+---
+
+## 🗄️ Database
+
+Database (MySQL) itu **SERVICE**, bukan file. Jadi:
+
+1.  Export database dari localhost (phpMyAdmin -> Export .sql).
+2.  Import file .sql itu ke database di server production kamu.
+3.  Edit file `.env` yang sudah diupload, sesuaikan `DB_HOST`, `DB_USER`, `DB_PASSWORD` dengan credential server.
 
 ---
 
