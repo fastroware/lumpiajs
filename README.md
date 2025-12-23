@@ -2,46 +2,34 @@
 
 **"Bahasa Pemrograman Web dengan Kearifan Lokal Semarangan."**
 
-Framework JavaScript rasa lokal yang didesain untuk **Static SPA (Single Page Application)**.
-Hasil build 100% Static (HTML+JS), bisa dideploy di hosting apa saja.
+Framework Static SPA 100% Client-Side. Coding pakai bahasa sehari-hari.
 
 ---
 
-## �️ Kamus Bahasa (Syntax Semarangan)
+## 🗣️ Kamus Bahasa
 
-Di LumpiaJS, coding jadi lebih santai dengan kosakata lokal:
+| Semarangan    | JS Asli       | Arti                  |
+| :------------ | :------------ | :-------------------- |
+| **`aku`**     | `this`        | Diri Sendiri (Object) |
+| **`fungsi`**  | `function`    | Fungsi                |
+| **`paten`**   | `const`       | Konstan               |
+| **`ono`**     | `let`         | Ada / Variabel        |
+| **`mengko`**  | `async`       | Nanti (Async)         |
+| **`nteni`**   | `await`       | Tunggu (Await)        |
+| **`balek`**   | `return`      | Kembali               |
+| **`kandani`** | `console.log` | Bilangi               |
 
-| Semarangan    | JavaScript Asli | Arti                 |
-| :------------ | :-------------- | :------------------- |
-| **`paten`**   | `const`         | Tetap / Konstan      |
-| **`ono`**     | `let`           | Ada / Variabel       |
-| **`gawe`**    | `function`      | Membuat Fungsi       |
-| **`mengko`**  | `async`         | Nanti (Asynchronous) |
-| **`nteni`**   | `await`         | Tunggu (Await)       |
-| **`balek`**   | `return`        | Kembali              |
-| **`yen`**     | `if`            | Jika                 |
-| **`liyane`**  | `else`          | Lainnya              |
-| **`jajal`**   | `try`           | Coba                 |
-| **`gagal`**   | `catch`         | Gagal / Error        |
-| **`kandani`** | `console.log`   | Bilangi / Log        |
+_Plus fitur **Laravel Syntax**: `aku->tampil()`._
 
-_Plus fitur **Laravel Syntax**: `this->tampil()` (pengganti titik)._
-
-**Contoh Coding:**
+**Contoh Coding (`HomeController.lmp`):**
 
 ```javascript
-export default class ProductController extends Controller {
+export default class HomeController extends Controller {
     mengko index() {
-        paten url = 'https://api.toko.com/produk';
+        paten pesan = 'Halo Lur!';
 
-        jajal {
-            ono data = nteni fetch(url);
-            kandani('Data sukses diambil');
-        } gagal (e) {
-            kandani('Waduh error: ' + e);
-        }
-
-        balek this->tampil('produk', { list: data });
+        // Panggil fungsi view
+        balek aku->tampil('home', { msg: pesan });
     }
 }
 ```
@@ -56,27 +44,21 @@ export default class ProductController extends Controller {
 npm install -g lumpiajs
 ```
 
-**2. Buat Project**
+**2. Buat Project & Develop**
 
 ```bash
 lumpia create-project warung-ku
-```
-
-**3. Development**
-
-```bash
-cd warung-ku
-npm install
+cd warung-ku && npm install
 lumpia kukus
 ```
 
-**4. Build (Goreng)**
+**3. Build Static (Goreng)**
 
 ```bash
 lumpia goreng
 ```
 
-Hasil di folder `dist` adalah **Static Site**. Upload kemanapun (Hosting/GitHub Pages).
+Upload folder `dist` kemana saja (Hosting Biasa/GitHub Pages).
 
 ---
 
