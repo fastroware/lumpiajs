@@ -2,13 +2,13 @@
 
 > **"Bahasa Pemrograman Web dengan Kearifan Lokal Semarangan."** > _Coding santai, performa badai, deploy dimana wae!_
 
-**LumpiaJS** adalah framework web berbasis JavaScript yang didesain unik. Menggabungkan kemudahan Node.js, struktur MVC yang rapi, sintaks ala Laravel, dan fleksibilitas deployment yang luar biasa (bisa jalan di Server Node.js maupun Hosting PHP biasa!).
+**LumpiaJS** adalah framework web berbasis JavaScript yang didesain unik. Menggabungkan kemudahan Node.js, struktur MVC yang rapi, sintaks ala Laravel, dan fleksibilitas deployment (bisa jalan di Server Node.js maupun Hosting PHP biasa!).
 
 ---
 
 ## 🔥 Kenapa Harus LumpiaJS?
 
-1.  **Hybrid Deployment (Ajaib!)**: Sekali build (`lumpia goreng`), hasilnya bisa ditaruh di **Hosting PHP Murah (cPanel)**, **XAMPP**, atau **Vercel/Node.js**. Tanpa ubah kodingan!
+1.  **Hybrid Deployment**: Sekali build (`lumpia goreng`), hasilnya bisa ditaruh di **Hosting PHP (cPanel)**, **XAMPP**, atau **Vercel/Node.js**. Tanpa ubah kodingan!
 2.  **Laravel Flavor**: Kangen tanda panah `->` di PHP? Di sini bisa dipakai di JavaScript!
     - `Jalan->get('/', ...)`
     - `DB.table('users')->where(...)->get()`
@@ -170,7 +170,7 @@ Sistem akan membuat folder **`dist`**. Folder inilah yang siap disajikan.
 
 ### A. Hosting PHP Biasa / XAMPP (Paling Umum)
 
-Cocok buat yang punya hosting cPanel murah atau server kantor jadul.
+Cocok buat yang punya hosting cPanel atau server kecil.
 
 1.  Ambil isi folder `dist`.
 2.  Upload ke `public_html` atau folder `htdocs` kamu.
