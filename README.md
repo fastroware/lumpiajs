@@ -4,69 +4,43 @@
 
 ---
 
-## 🦄 Fitur Unik: Laravel Syntax di JavaScript! (`->`)
+## 🦄 Deployment Ajaib (Universal)
 
-```javascript
-// Valid di LumpiaJS (.lmp)
-const users = await DB.table('users')->where('active', 1)->get();
-Jalan->get('/', 'HomeController@index');
-```
+Ini fitur andalan LumpiaJS. Satu folder build (`dist`) bisa jalan di mana saja tanpa ubah kodingan.
 
----
+User (Browser) akan menembak alamat `/api`.
 
-## 🏗️ Cara Deploy ke Production (Server Asli)
+- Jika di **Hosting PHP**, server otomatis mengarahkan ke `api.php`.
+- Jika di **Vercel/Node**, server otomatis mengarahkan ke `api.js`.
 
-Ini yang sering ditanyain: **"Mas, file mana yang harus saya upload ke hosting?"**
-
-Tenang, LumpiaJS punya fitur **Goreng** (Build) biar kamu nggak bingung.
-
-### 1. Goreng Project (Build)
-
-Jalankan perintah ini di komputermu:
+### 1. Build Project
 
 ```bash
 lumpia goreng
 ```
 
-_(Atau: `lumpia build`)_
+### 2. Panduan Deploy
 
-Sistem akan memasak projectmu:
+**A. Hosting PHP / XAMPP (Apache)**
 
-- Mentranspile sintaks `->` menjadi JS standard.
-- Mengkompilasi CSS (minify Tailwind/Bootstrap).
-- Menyiapkan folder `dist` yang siap saji.
+1.  Copy `dist` ke server.
+2.  Edit **`api.php`** (Isi config database).
+3.  Selesai.
+    _Server otomatis pakai `.htaccess` untuk routing._
 
-### 2. Upload ke Server
+**B. Vercel (Gratis)**
 
-Setelah digoreng, akan muncul folder **`dist`**.
+1.  Drag `dist` ke Vercel (atau push git).
+2.  Set Environment Variables di Vercel (`DB_HOST`, `DB_USER`, dll).
+3.  Selesai.
+    _Vercel otomatis baca `vercel.json` dan pakai `api.js` sebagai serverless function._
 
-👉 **HANYA ISI FOLDER `dist`** inilah yang perlu kamu upload ke server.
-(Isinya: `server.js`, `package.json`, `.env`, folder `app`, `routes`, `views`, `public`)
+**C. VPS (Node.js)**
 
-### 3. Install & Start di Server
-
-Di panel hosting (Terminal/SSH) atau VPS:
-
-```bash
-# Masuk ke folder yang barusan diupload
-cd /path/to/your/app
-
-# Install dependencies (LumpiaJS core, mysql driver, dll)
-npm install --production
-
-# Jalankan Aplikasi
-npm start
-```
-
----
-
-## 🗄️ Database
-
-Database (MySQL) itu **SERVICE**, bukan file. Jadi:
-
-1.  Export database dari localhost (phpMyAdmin -> Export .sql).
-2.  Import file .sql itu ke database di server production kamu.
-3.  Edit file `.env` yang sudah diupload, sesuaikan `DB_HOST`, `DB_USER`, `DB_PASSWORD` dengan credential server.
+1.  Upload `dist`.
+2.  `npm install`
+3.  `npm start`
+    _Node akan menjalankan `server.js`._
 
 ---
 
