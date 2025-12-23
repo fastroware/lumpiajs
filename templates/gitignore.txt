@@ -1,0 +1,3 @@
+.lumpia
+node_modules
+.env
